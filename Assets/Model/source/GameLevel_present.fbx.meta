@@ -1,0 +1,218 @@
+fileFormatVersion: 2
+guid: a66ad22731e3db54ca7b390fb18b45f8
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: 4685049482471017468
+    second: fan|Crossbow.002Action
+  - first:
+      74: -8339473466539835799
+    second: fan|Crossbow.002Action.001
+  - first:
+      74: 5928216969787055201
+    second: fan|Crossbow.002Action.002
+  - first:
+      74: -267742721350199439
+    second: fan|Crossbow.002Action.003
+  - first:
+      74: 5221499108287727099
+    second: fan|CylinderAction
+  - first:
+      74: -6242119103994596285
+    second: fan|fanAction
+  - first:
+      74: 7425796808861339707
+    second: Cylinder|Crossbow.002Action
+  - first:
+      74: 2110895378894700363
+    second: Cylinder|Crossbow.002Action.001
+  - first:
+      74: -3006370666782268400
+    second: Cylinder|Crossbow.002Action.002
+  - first:
+      74: -9052540250239333734
+    second: Cylinder|Crossbow.002Action.003
+  - first:
+      74: -88723805440604879
+    second: Cylinder|CylinderAction
+  - first:
+      74: 7456662621311232152
+    second: Cylinder|fanAction
+  - first:
+      74: -5928276623622093051
+    second: Crossbow.002|Crossbow.002Action
+  - first:
+      74: 9072194425686548307
+    second: Crossbow.002|Crossbow.002Action.001
+  - first:
+      74: -7702688765864811083
+    second: Crossbow.002|Crossbow.002Action.002
+  - first:
+      74: -7072238357358126271
+    second: Crossbow.002|Crossbow.002Action.003
+  - first:
+      74: 7992390130338651497
+    second: Crossbow.002|CylinderAction
+  - first:
+      74: -1764432907696944650
+    second: Crossbow.002|fanAction
+  - first:
+      74: -5716389025233193997
+    second: Crossbow.004|Crossbow.002Action
+  - first:
+      74: 4838641272782610183
+    second: Crossbow.004|Crossbow.002Action.001
+  - first:
+      74: 5726806678672649346
+    second: Crossbow.004|Crossbow.002Action.002
+  - first:
+      74: 507099540982757098
+    second: Crossbow.004|Crossbow.002Action.003
+  - first:
+      74: -1300874399471516192
+    second: Crossbow.004|CylinderAction
+  - first:
+      74: 1843455131853408841
+    second: Crossbow.004|fanAction
+  - first:
+      74: 1617847153594978311
+    second: Crossbow.001|Crossbow.002Action
+  - first:
+      74: -4217729178336712481
+    second: Crossbow.001|Crossbow.002Action.001
+  - first:
+      74: -4286623636959223866
+    second: Crossbow.001|Crossbow.002Action.002
+  - first:
+      74: 1374218960694830507
+    second: Crossbow.001|Crossbow.002Action.003
+  - first:
+      74: -4930868029417373673
+    second: Crossbow.001|CylinderAction
+  - first:
+      74: 4994334419341319489
+    second: Crossbow.001|fanAction
+  - first:
+      74: -6859688175799598436
+    second: Crossbow.003|Crossbow.002Action
+  - first:
+      74: -8457429476803527319
+    second: Crossbow.003|Crossbow.002Action.001
+  - first:
+      74: -5009468002087074930
+    second: Crossbow.003|Crossbow.002Action.002
+  - first:
+      74: -8275961253981444891
+    second: Crossbow.003|Crossbow.002Action.003
+  - first:
+      74: -2432694545928733475
+    second: Crossbow.003|CylinderAction
+  - first:
+      74: 7787256805587046314
+    second: Crossbow.003|fanAction
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gradient Pallete
+    second: {fileID: 2800000, guid: 1fabbfd21adfe24408907a94fba05456, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
