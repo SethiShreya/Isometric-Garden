@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using UnityEngine.Windows.Speech;
 
 public class GardenManager : MonoBehaviour
 {
@@ -12,7 +15,13 @@ public class GardenManager : MonoBehaviour
     public LayerMask layerMask;
     public UIManager uiManager;
     private Vector3 currentPos;
-
+    private Dictionary<Vector3, RetrieveData> dataCorrespondingToPos= new Dictionary<Vector3, RetrieveData>();
+    [SerializeField]
+    private GetData getData;
+    public AudioSource source;
+    public AudioClip plantingClip;
+    [SerializeField]
+    private float yPos=0.6f;
 
     private void Awake()
     {
@@ -20,8 +29,6 @@ public class GardenManager : MonoBehaviour
     }
 
     
-
-
     private void GetMousePosition()
     {
         //Debug.Log("Get mouse positon funciton called");
@@ -37,6 +44,8 @@ public class GardenManager : MonoBehaviour
     public void GetValuesToStore(RetrieveData data)
     {
         // store the value to the dictionary with current pos
+        dataCorrespondingToPos.Add(currentPos, data);
+        Debug.Log("Data stored in dict");
     }
     
 
@@ -52,16 +61,22 @@ public class GardenManager : MonoBehaviour
         if (tilemap.HasTile(cellpos) && tilemap.GetTileFlags(cellpos)==TileFlags.LockColor)
         {
             position= grid.GetCellCenterWorld(cellpos);
-            Debug.Log(position);
+            position.y = yPos;
+            source.PlayOneShot(plantingClip);
             Instantiate(plantPrefab, position, Quaternion.identity);
             tilemap.AddTileFlags(cellpos, TileFlags.LockAll);
             uiManager.EnableSearch();
             // stores the values got from getdata
-
+            currentPos = cellpos;
         }
         else if (tilemap.HasTile(cellpos) && tilemap.GetTileFlags(cellpos) == TileFlags.LockAll)
         {
             // clicks the already instantiated object so retrieve the values
+            if (dataCorrespondingToPos.ContainsKey(cellpos))
+            {
+                Debug.Log("plant present at the point");
+                getData.PrintData(dataCorrespondingToPos[cellpos]);
+            }
         }
         else
         {

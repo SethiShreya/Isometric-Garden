@@ -6,6 +6,24 @@ public class UIManager : MonoBehaviour
     public GameObject SearchCanvas;
     public GameObject PlantDetailCanvas;
     public PanZoomBehavior PanZoomBehavior;
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip buttonAudio;
+    [SerializeField]
+    private GameObject noDataFound;
+    public void AudioClick()
+    {
+        source.PlayOneShot(buttonAudio);
+    }
+
+
+    public void BackToSearch()
+    {
+        PanZoomBehavior.enabled = false;
+        noDataFound.SetActive(false);
+        SearchCanvas.SetActive(true);
+    }
 
     public void EnableSearch()
     {

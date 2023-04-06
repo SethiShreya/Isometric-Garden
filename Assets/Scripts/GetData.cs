@@ -76,6 +76,10 @@ public class PlantDetails
     public string description;
     public string problem;
     public DefaultImage default_image;
+
+
+    
+
 }
 
 [System.Serializable]
@@ -115,7 +119,7 @@ public class RetrieveData
     public string growth_rate;
     public string imageUrl;
 
-    RetrieveData(string name, string sname, string family, string origin, string watering, string sunlight, string soil, bool tropical, bool fruits, string growth_rate, string imageUrl)
+    public RetrieveData(string name, string sname, string family, string origin, string watering, string sunlight,string soil,  bool tropical, bool fruits, string growth_rate, string imageUrl)
     {
         this.name = name;
         this.s_Name = sname;
@@ -142,6 +146,13 @@ public class GetData : MonoBehaviour
     public TMP_InputField input;
     public GameObject SearchCanvas;
     public GameObject PlantDetailCanvas;
+    public GameObject NoDataCanvas;
+    public AudioSource source;
+    public AudioClip errorClip;
+    [SerializeField]
+    private GardenManager gardenManager;
+    public TextMeshProUGUI errorString;
+
 
 
     public void Search()
@@ -152,6 +163,7 @@ public class GetData : MonoBehaviour
     public IEnumerator SearchRoutine()
     {
        string url = $"https://perenual.com/api/species-list?key={api_key}&q={input.text}";
+        Debug.Log("Input field " + input.text);
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
 
@@ -167,20 +179,40 @@ public class GetData : MonoBehaviour
             {
                 long id = (long)jsonObject["data"][0]["id"];
                 StartCoroutine(GetDetails(id));
+                Debug.Log("String searched "+input.text);
             }
             else
             {
+                SearchCanvas.SetActive(false);
+                source.PlayOneShot(errorClip);
+                errorString.text+=input.text;
+                NoDataCanvas.gameObject.SetActive(true);
                 Debug.Log("Specified Plant: \"" + input.text + " \" not found, try searching for something else");
-            }
-
-            
+            }  
         }
+    }
+
+    public void PrintData(RetrieveData data)
+    {
+        SearchCanvas.SetActive(false);
+        PlantDetailCanvas.SetActive(true);
+        textMeshes[0].text = data.name;
+        textMeshes[1].text = data.s_Name;
+        textMeshes[2].text = data.family;
+        textMeshes[3].text = data.origin;
+        textMeshes[4].text = data.watering;
+        textMeshes[5].text = data.sunlight;
+        textMeshes[6].text = data.soil;
+        textMeshes[7].text = data.tropical.ToString();
+        textMeshes[8].text = data.fruits.ToString();
+        textMeshes[9].text = data.growth_rate;
+
+        StartCoroutine(GetImage(data.imageUrl));
     }
 
     IEnumerator GetDetails(long id)
     {
-        SearchCanvas.SetActive(false);
-        PlantDetailCanvas.SetActive(true);
+        
         string detailsUrl = $"https://perenual.com/api/species/details/{id}?key={api_key}";
         UnityWebRequest www= UnityWebRequest.Get(detailsUrl);
 
@@ -194,24 +226,20 @@ public class GetData : MonoBehaviour
         {
             string json = www.downloadHandler.text;
             PlantDetails plants = JsonUtility.FromJson<PlantDetails>(json);
-            Debug.Log(json);
-
-            Debug.Log(plants.family);
-            
-            textMeshes[0].text = plants.common_name ?? "N/A";
-            textMeshes[1].text = (plants.scientific_name != null && plants.scientific_name.Length > 0) ? plants.scientific_name[0] : "N/A";
-            textMeshes[2].text = (plants.family != "" && plants.family!=null) ? plants.family : "N/A";
-            textMeshes[3].text = (plants.origin != null && plants.origin.Length > 0) ? plants.origin[0] : "N/A";
-            textMeshes[4].text = plants.watering ?? "N/A";
-            textMeshes[5].text = (plants.sunlight != null && plants.sunlight.Length > 0) ? plants.sunlight[0] : "N/A";
-            textMeshes[6].text = (plants.soil != null && plants.soil.Length > 0) ? plants.soil[0] : "N/A";
-            textMeshes[7].text = plants.tropical.ToString();
-            textMeshes[8].text = plants.fruits.ToString();
-            textMeshes[9].text = plants.growth_rate ?? "N/A";
-
-            // store the value with tuple and give it to the GetValuesToStore function to store them in dictionary
-
-            StartCoroutine(GetImage(plants.default_image.original_url));
+            RetrieveData data=new RetrieveData(plants.common_name ?? "N/A",
+               plants.scientific_name.Length > 0 ? plants.scientific_name[0] : "N/A",
+               plants.family ?? "N/A",
+               plants.origin.Length > 0 ? plants.origin[0] : "N/A",
+               plants.watering ?? "N/A",
+               plants.sunlight.Length > 0 ? plants.sunlight[0] : "N/A",
+               plants.soil.Length>0?plants.soil[0]:"N/A",
+               plants.tropical,
+               plants.fruits,
+               plants.growth_rate ?? "N/A",
+               plants.default_image.original_url.ToString()
+                );
+            PrintData(data);
+            gardenManager.GetValuesToStore(data);           
         }
     }
 
