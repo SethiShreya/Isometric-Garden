@@ -185,7 +185,7 @@ public class GetData : MonoBehaviour
             {
                 SearchCanvas.SetActive(false);
                 source.PlayOneShot(errorClip);
-                errorString.text+=input.text;
+                errorString.text =input.text;
                 NoDataCanvas.gameObject.SetActive(true);
                 Debug.Log("Specified Plant: \"" + input.text + " \" not found, try searching for something else");
             }  
