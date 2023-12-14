@@ -602,14 +602,14 @@ MonoBehaviour:
   textMeshes:
   - {fileID: 914920312}
   - {fileID: 540765957}
-  - {fileID: 812861218}
-  - {fileID: 551780755}
-  - {fileID: 1577879493}
-  - {fileID: 1258033887}
-  - {fileID: 156445313}
-  - {fileID: 1966175265}
-  - {fileID: 501297339}
-  - {fileID: 1913011551}
+  - {fileID: 1384597495}
+  - {fileID: 1150645169}
+  - {fileID: 1354089582}
+  - {fileID: 1397861595}
+  - {fileID: 197376242}
+  - {fileID: 1736337758}
+  - {fileID: 1766675804}
+  - {fileID: 1840689040}
   input: {fileID: 793062822}
   SearchCanvas: {fileID: 123451038}
   PlantDetailCanvas: {fileID: 1672628138}
